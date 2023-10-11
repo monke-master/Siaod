@@ -1,0 +1,3 @@
+C:/C++ Projects/siaod/SiaodThirdSemester/prack22/cmake-build-debug/CMakeFiles/prack22.dir
+C:/C++ Projects/siaod/SiaodThirdSemester/prack22/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/C++ Projects/siaod/SiaodThirdSemester/prack22/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,3 @@
+C:/C++ Projects/chlen/prack1/cmake-build-debug/CMakeFiles/prack1.dir
+C:/C++ Projects/chlen/prack1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/C++ Projects/chlen/prack1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
