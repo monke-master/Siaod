@@ -26,7 +26,7 @@ public:
     node* root;
     node* newNode(string item, int value);
     node* insert(struct node* node, string key, int value);
-    node* search(struct node* root, string key);
+    node* getByKey(struct node* root, string key);
     node* deleteNode(struct node* root, string key);
     void printTree(node* node, int level = 0);
 };

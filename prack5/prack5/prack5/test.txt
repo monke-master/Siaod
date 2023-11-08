@@ -1,4 +1,4 @@
-Ukraine
+KNDR
 20000000
 1
 Russia
@@ -13,7 +13,7 @@ USA
 China
 398399393
 1
-GreateGeorgia
+Georgia
 12039393
 1
 Armenia

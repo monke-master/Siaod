@@ -25,7 +25,7 @@ int main()
 
 	
 	auto* tree = new BinarySearchTree();
-	filer.createBDPFromFile(fileName + ".bin", count, tree);
+	filer.createTree(fileName + ".bin", count, tree);
 	cout << "Created tree: " << endl;
 	tree->printTree(tree->root, 0);
 
@@ -42,7 +42,7 @@ int main()
 		{
 			string key;
 			cin >> key;
-			filer.searchValueInFileBDP(fileName + ".bin", tree, key);
+			filer.getValue(fileName + ".bin", tree, key);
 		}
 		else if (command == DELETE)
 		{

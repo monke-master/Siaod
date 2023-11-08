@@ -21,15 +21,15 @@ node* BinarySearchTree::insert(node* node, string key, int value)
     return node;
 }
 
-node* BinarySearchTree::search(node* root, string key)
+node* BinarySearchTree::getByKey(node* root, string key)
 {
     if (root == NULL || root->key == key)
         return root;
 
     if (root->key < key)
-        return search(root->right, key);
+        return getByKey(root->right, key);
 
-    return search(root->left, key);
+    return getByKey(root->left, key);
 }
 
 node* BinarySearchTree::minValueNode(node* node)
@@ -51,7 +51,6 @@ node* BinarySearchTree::deleteNode(node* root, string key)
     else if (key > root->key)
         root->right = deleteNode(root->right, key);
     else {
-        // Если у узла один дочерний элемент или их нет
         if (root->left == NULL) {
             struct node* temp = root->right;
             free(root);
@@ -62,14 +61,13 @@ node* BinarySearchTree::deleteNode(node* root, string key)
             free(root);
             return temp;
         }
-
-        // Если у узла два дочерних элемента
+      
         struct node* temp = minValueNode(root->right);
 
-        // Помещаем inorder-преемника на место узла, который хотим удалить
+     
         root->key = temp->key;
+        root->value = temp->value;
 
-        // Удаляем inorder-преемника
         root->right = deleteNode(root->right, temp->key);
     }
     return root;
@@ -78,10 +76,9 @@ node* BinarySearchTree::deleteNode(node* root, string key)
 
 void BinarySearchTree::printTree(node* node, int level)
 {
-    if (node != nullptr) {
-        printTree(node->right, level + 1);
-        cout << string(level * 4, ' ') << "-> " << node->key << endl;
-        printTree(node->left, level + 1);
-    }
-
+    if (!node)
+        return;
+    printTree(node->right, level + 1);
+    cout << string(level * 4, ' ') << "-> " << node->key << endl;
+    printTree(node->left, level + 1);
 }

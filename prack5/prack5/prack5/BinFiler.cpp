@@ -6,19 +6,18 @@ void BinFiler::insertFromFile(string fileName, int index, BinarySearchTree* tree
     string str;
     str.append(country->name);
     tree->root = tree->insert(tree->root, str, index);
-
 }
 
-void BinFiler::createBDPFromFile(string fileName, int size, BinarySearchTree* tree)
+void BinFiler::createTree(string fileName, int size, BinarySearchTree* tree)
 {
     for (int i = 1; i <= size; i++)
         insertFromFile(fileName, i, tree);
 }
 
-void BinFiler::searchValueInFileBDP(string fileName, BinarySearchTree* tree, string key)
+void BinFiler::getValue(string fileName, BinarySearchTree* tree, string key)
 {
     auto begin = std::chrono::steady_clock::now();
-    node* foundNode = tree->search(tree->root, key);
+    node* foundNode = tree->getByKey(tree->root, key);
     if (foundNode == NULL) 
         cout << "There is no any value with this key in the tree" << endl;
     else {
@@ -29,8 +28,8 @@ void BinFiler::searchValueInFileBDP(string fileName, BinarySearchTree* tree, str
         cout << country->name << " " << country->population << " " << country->memberUN << endl;
     }
     auto end = std::chrono::steady_clock::now();
-    auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin);
-    std::cout << "The time: " << elapsed_ms.count() << " ms\n";
+    auto elapsed_ms = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    std::cout << "The time: " << elapsed_ms.count() << " ns\n";
 
 }
 
