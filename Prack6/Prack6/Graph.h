@@ -23,7 +23,7 @@ private:
 	vector<vector<pair<int, int>>> adjList;
 	void dfs(int vertex, int parent = -1);
 public:
-	void createGraph(int n, int edgesCount);
+	void createGraph(int vertexCount, int edgesCount);
 	void printGraph();
 	void findBridges();
 	vector<Edge> getSpanningTree();

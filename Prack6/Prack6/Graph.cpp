@@ -2,11 +2,11 @@
 
 
 
-void Graph::createGraph(int n, int edgesCount) {
+void Graph::createGraph(int vertexCount, int edgesCount) {
     vector<Edge> edges;
     Edge edge;
     int src, dest, weight;
-    vertexCount = n;
+    this->vertexCount = vertexCount;
     this->edgesCount = edgesCount;
     for (int i = 0; i < edgesCount; i++) {
         cin >> src;
@@ -23,7 +23,7 @@ void Graph::createGraph(int n, int edgesCount) {
         edges.push_back(edge);
     }
 
-    adjList.resize(n);
+    adjList.resize(vertexCount);
 
     for (auto& edge : edges)
     {
@@ -88,9 +88,9 @@ vector<Edge> Graph::getSpanningTree()
         edgesList.end()
     );
 
-    vector<int> treeId(vertexCount);
-    for (int i = 0; i < vertexCount; i++)
-        treeId[i] = i + 1;
+    vector<int> treeId(vertexCount + 1);
+    for (int i = 0; i <= vertexCount; i++)
+        treeId[i] = i;
     vector<Edge> result;
     int cost = 0;
     for (Edge edge : edgesList) {
@@ -99,7 +99,7 @@ vector<Edge> Graph::getSpanningTree()
             result.push_back(edge);
             int oldId = treeId[edge.dest];
             int newId = treeId[edge.src];
-            for (int j = 0; j < vertexCount; j++) {
+            for (int j = 0; j <= vertexCount; j++) {
                 if (treeId[j] == oldId)
                     treeId[j] = newId;
             }
